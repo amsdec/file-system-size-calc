@@ -1,4 +1,4 @@
-package com.github.amsdec.katas.filesystem_size_calc;
+package com.github.amsdec.katas.filesystem;
 
 import java.io.File;
 
