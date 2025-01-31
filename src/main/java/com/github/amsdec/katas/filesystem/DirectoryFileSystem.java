@@ -7,11 +7,8 @@ import java.util.stream.Stream;
 
 import com.github.amsdec.katas.filesystem.visitor.Visitor;
 
-import lombok.Getter;
-
 public class DirectoryFileSystem implements FileSystem {
 
-    @Getter
     private final List<FileSystem> innerFiles;
 
     public DirectoryFileSystem(final File dir) {
@@ -20,7 +17,9 @@ public class DirectoryFileSystem implements FileSystem {
 
     @Override
     public void accept(final Visitor visitor) {
-        visitor.visit(this);
+        for (final FileSystem fileSystem : this.innerFiles) {
+            fileSystem.accept(visitor);
+        }
     }
 
 }

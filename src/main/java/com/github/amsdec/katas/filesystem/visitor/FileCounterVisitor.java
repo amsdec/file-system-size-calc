@@ -12,7 +12,7 @@ public class FileCounterVisitor implements Visitor {
 
     @Override
     public void visit(final DirectoryFileSystem fs) {
-        fs.getInnerFiles().forEach(f -> f.accept(this));
+        fs.accept(this);
     }
 
     @Override
